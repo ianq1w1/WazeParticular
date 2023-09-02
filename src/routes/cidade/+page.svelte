@@ -1,4 +1,4 @@
-<script lang='js'>
+<script lang="js">
 
 
 
@@ -11,9 +11,9 @@
         [1,1,0,1,0,0,0],
         [0,1,1,2,0,0,0],
     ]
-// possivel algoritmo de calculo de rota 
+ // possivel algoritmo de calculo de rota 
     console.log(city)
-/**
+ /**
      * @param {number[][]} route
      */
 function rota (route){
@@ -29,15 +29,17 @@ function rota (route){
         }
     }
     var parada = maiorNum(route)
+    var partida = carro(route)
     console.log(parada)
-    
-    /*for(i = i; i >= rua; i--){
+    // FUNÇÃO calculo do ponto A (paritda) até o ponto B (objetivo): 
+  /*  for(i = i; i>= rua; i--){
         for(j = j; j>=rua; j--){
             if(parada >= rua){
                 console.log(route[i][j]) 
             }
         }
-    }*/
+    
+}*/
 }
 // pega o maior numero da array (objetivo)
 /**
@@ -56,6 +58,23 @@ function maiorNum(cidade){
         return maior;
     
 }
+
+/**
+     * @param {number[][]} cidadezi
+     */
+function carro(cidadezi){
+    let menor = 100
+    for (let i = 0; i < cidadezi.length; i++) {
+            for(let j = 0; j<cidadezi[i].length; j++){
+                if(cidadezi[i][j] < menor && cidadezi[i][j] != 1 && cidadezi[i][j] != 0 ){
+                    menor = cidadezi[i][j];
+                }
+            }
+        }
+        //return menor;
+        console.log(menor);
+}
+
 
 
 rota(city)
