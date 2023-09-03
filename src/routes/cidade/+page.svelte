@@ -30,17 +30,44 @@ function rota (route){
     }
     var parada = maiorNum(route)
     var partida = carro(route)
-    console.log(parada)
-    // FUNÇÃO calculo do ponto A (paritda) até o ponto B (objetivo): 
-  /*  for(i = i; i>= rua; i--){
-        for(j = j; j>=rua; j--){
-            if(parada >= rua){
-                console.log(route[i][j]) 
+
+    var xcarro = 0;
+    var ycarro = 0;
+
+    var xparada = 0;
+    var yparada = 0
+
+    // FUNÇÃO localização linha e coluna do carro 
+    for(xcarro = 0; xcarro<route.length; xcarro++){
+        for(ycarro = 0; ycarro<route[xcarro].length; ycarro++){
+            if(route[xcarro][ycarro] == partida){
+                xcarro = xcarro;
+                ycarro = ycarro;
+            }  
+        }
+    }
+    // FUNÇÃO localização linha e coluna do objetivo/parada    
+    for(xparada = 0; xparada<route.length; xparada++){
+        for(yparada = 0; yparada<route[xparada].length; yparada++){
+            if(route[xparada][yparada] == parada){
+                xparada = xparada;
+                yparada = yparada;
             }
         }
+    }
+
+
+    //FUNÇÃO REALOCAR POSIÇÃO DO CARRO 
+
+  /*  for(route[xcarro] != route[xparada]; route[xcarro] <= route[xparada]; xcarro++){
+        for(route[ycarro] != route[yparada]; route[ycarro] <= route[yparada]; ycarro++){
+            if(route[xcarro][ycarro] <)
+        }
+    }*/
+
     
-}*/
 }
+
 // pega o maior numero da array (objetivo)
 /**
      * @param {number[][]} cidade
@@ -51,7 +78,7 @@ function maiorNum(cidade){
     for (let i = 0; i < cidade.length; i++) {
             for(let j = 0; j<cidade[i].length+1; j++){
                 if(cidade[i][j] > maior){
-                    return maior = cidade[i][j];
+                     maior = cidade[i][j];
                 }
             }
         }
@@ -71,14 +98,11 @@ function carro(cidadezi){
                 }
             }
         }
-        //return menor;
-        console.log(menor);
+        return menor;
+        
 }
 
-
-
 rota(city)
-
 
 </script>
 <h1>em tese mapa do jogo</h1>
@@ -100,8 +124,8 @@ rota(city)
 <h2>era pra ser isso mas vai deixar de ser:</h2>
 <p>  1 = pista 
     <br>
-    5 = objetivo
+    maior numero = objetivo
     <br>
-    0 = casas
+    0 = casas/coisas
     <br> 
-    2 = carro</p>
+    2(ou menor numero exceto por 1 e 0) = carro</p>
