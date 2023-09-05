@@ -75,30 +75,28 @@ function rota (route){
  
     while (xcarro !== xparada || ycarro !== yparada) {
     // Lógica de movimento para direita
-    if (xcarro < xparada && moveValido(xcarro + 1, ycarro)) {
+    if (xcarro < xparada ) {
         route[ycarro][xcarro] = 0; // Limpa a posição atual do carro
         xcarro++; // Move o carro para a direita
         route[ycarro][xcarro] = partida; // Atualiza a nova posição do carro
     }
     // Lógica de movimento para esquerda
-    else if (xcarro > xparada && moveValido(xcarro - 1, ycarro)){
+    else if (xcarro > xparada ){
         route[ycarro][xcarro] = 0; // Limpa a posição atual do carro
         xcarro--; // Move o carro para a esquerda
         route[ycarro][xcarro] = partida; // Atualiza a nova posição do carro
     }
     // Lógica de movimento para cima
-    else if (ycarro < yparada && moveValido(xcarro, ycarro + 1)){
+    else if (ycarro < yparada ){
         route[ycarro][xcarro] = 0; // Limpa a posição atual do carro
         ycarro++; // Move o carro para cima
         route[ycarro][xcarro] = partida; // Atualiza a nova posição do carro
     }
     // Lógica de movimento para baixo
-    else if (ycarro > yparada && moveValido(xcarro, ycarro - 1)){
+    else if (ycarro > yparada ){
         route[ycarro][xcarro] = 0; // Limpa a posição atual do carro
         ycarro--; // Move o carro para baixo
         route[ycarro][xcarro] = partida; // Atualiza a nova posição do carro
-    }else{
-        break;
     }
 
     console.log(route)
