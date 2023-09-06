@@ -4,5 +4,5 @@
 
 ## Desenvolvedores ✌
 
-* [Carolayne Maria Russel](https://github.com/CarolayneMR)
+* [Carolayne Maria](https://github.com/CarolayneMR)
 * [Ian Elton](https://github.com/ianq1w1)
