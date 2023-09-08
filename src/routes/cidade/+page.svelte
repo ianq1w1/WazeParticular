@@ -1,147 +1,137 @@
 <script lang="js">
 
+function findPath(matrix) {
+  // Base case: If the current cell is out of bounds or already visited, return false.
+ /* if (row < 0 || col < 0 || row >= matrix.length || col >= matrix[0].length || matrix[row][col] === 0) {
+    return false;
+  }*/
+
+  var rua = CountRua(matrix);
+  var carro = FoundCar(matrix);
+  var destiny = FindDestiny(matrix);
+
+  var RowCar = 0;
+  var ColCar = 0;
+
+  var RowDestiny = 0;
+  var ColDestiny = 0;
 
 
 
-    export let city = [
-        [0,0,0,0,0,0,0,0],
-        [0,0,1,1,1,1,5,0],
-        [0,0,1,0,0,0,1,0],
-        [0,0,1,0,0,0,1,0],
-        [0,0,1,0,0,0,1,0],
-        [0,0,2,1,1,1,1,0],
-    ]
- // possivel algoritmo de calculo de rota 
-    console.log(city)
- /**
-     * @param {number[][]} route
-     */
-function rota (route){
-    var i =0;
-    var j = 0;
-    var rua = 0
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length; j++){
+        if(matrix[i][j] === carro){
+            RowCar = i
+            ColCar = j
+        }
+        if(matrix[i][j] === destiny){
+            RowDestiny = i
+            ColDestiny = j
+        }
+    }
+  }
+  
 
-    for(i=0; i<route.length; i++){
-        for(j=0; j<route[i].length; j++){
-            if(route[i][j] == 1 ){
-                rua = route[i][j]
-                console.log(route[i][j]);
+  // Base case: If the current cell is 2 (destination), we've found a path.
+  /*if (matrix[row][col] === 2) {
+    return true;
+  }*/
+
+  // Mark the current cell as visited.
+  //matrix[row][col] = 0;
+
+  // Recursively explore neighboring cells in all four directions.
+ /* if (
+    findPath(matrix, row - 1, col) ||
+    findPath(matrix, row + 1, col) ||
+    findPath(matrix, row, col - 1) ||
+    findPath(matrix, row, col + 1)
+  ) {
+    return true;
+  }*/
+console.log(moveValido(matrix, RowCar - 1, ColCar) )
+
+  for(let i = 0; i < matrix.length; i++ ){
+    for(let j = 0; j < matrix[i].length; j++){
+        if(moveValido(matrix, i - 1, j) || moveValido(matrix, i + 1, j) || moveValido(matrix, i, j + 1) || moveValido(matrix, i, j - 1) ){
+            i = RowCar
+            j = ColCar;
+            matrix[i][j] = 0
+            return true;
+        }else{
+            matrix[i][j] = rua
+            return false;
+        }
+    }
+  }
+
+  // If no path is found from this cell, backtrack and mark it as unvisited.
+ /* matrix[row][col] = 1;
+  return false;*/
+}
+
+// Given matrix
+let city = [
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 1, 1, 1, 1, 5, 0],
+  [0, 0, 1, 0, 0, 0, 1, 0],
+  [0, 0, 1, 0, 0, 0, 1, 0],
+  [0, 0, 1, 0, 0, 0, 1, 0],
+  [0, 0, 2, 1, 1, 1, 1, 0],
+];
+
+
+function CountRua(matrix){
+    var rua = 0;
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix[i].length; j++){
+            if(matrix[i][j] === 1){
+                rua = matrix[i][j] ;
             }
         }
     }
-
-    var parada = maiorNum(route)
-    var partida = carro(route)
-
-    var xcarro = 0;
-    var ycarro = 0;
-
-    var xparada = 0;
-    var yparada = 0;
-
-//localizar parada e partida 
-    for (let i = 0; i < route.length; i++) {
-        for (let j = 0; j < route[i].length; j++) {
-            if (route[i][j] === partida) {
-                xcarro = i;
-                ycarro = j;
-            }
-            if (route[i][j] === parada) {
-                xparada = i;
-                yparada = j;
+    return rua;
+}
+function FoundCar(matrix){
+    var carrinho = 0;
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix[i].length; j++){
+            if(matrix[i][j] === 2){
+                carrinho = matrix[i][j] ;
             }
         }
     }
+    return carrinho;
+}
 
-
-    //FUNÇÃO REALOCAR POSIÇÃO DO CARRO 
-
-  /*  for(route[xcarro] != route[xparada]; route[xcarro] <= route[xparada]; xcarro++){
-        for(route[ycarro] != route[yparada]; route[ycarro] <= route[yparada]; ycarro++){
-            if(route[xcarro][ycarro] <)
+function FindDestiny(matrix){
+    var destiny = 0;
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix[i].length; j++){
+            if(matrix[i][j] === 5){
+                destiny = matrix[i][j] ;
+            }
         }
-    }*/
-  /**
-   * @param {number} x
-   * @param {number} y
-   */
-    function moveValido(x,y){
-    
-        return x >= 0 && x < 10 && y >= 0 && y < 10 && route[y][x] !== 1;
     }
+    return destiny;
+}
+function moveValido(matrix, row, col){
+    if(row < 0 || col < 0 || matrix[row][col] === 0){
+        return false;
+    }else{
+        return true;
+    }
+  }
+// Find a path from 5 to 2 (start from row 1, column 6)
+const foundPath = findPath(city);
 
-    var l = 0;
-    var c = 0;
- 
-    while (xcarro !== xparada || ycarro !== yparada) {
-    // Lógica de movimento para direita
-    if (xcarro < xparada ) {
-        route[ycarro][xcarro] = 0; // Limpa a posição atual do carro
-        xcarro++; // Move o carro para a direita
-        route[ycarro][xcarro] = partida; // Atualiza a nova posição do carro
-    }
-    // Lógica de movimento para esquerda
-    else if (xcarro > xparada ){
-        route[ycarro][xcarro] = 0; // Limpa a posição atual do carro
-        xcarro--; // Move o carro para a esquerda
-        route[ycarro][xcarro] = partida; // Atualiza a nova posição do carro
-    }
-    // Lógica de movimento para cima
-    else if (ycarro < yparada ){
-        route[ycarro][xcarro] = 0; // Limpa a posição atual do carro
-        ycarro++; // Move o carro para cima
-        route[ycarro][xcarro] = partida; // Atualiza a nova posição do carro
-    }
-    // Lógica de movimento para baixo
-    else if (ycarro > yparada ){
-        route[ycarro][xcarro] = 0; // Limpa a posição atual do carro
-        ycarro--; // Move o carro para baixo
-        route[ycarro][xcarro] = partida; // Atualiza a nova posição do carro
-    }
-
-    console.log(route)
+if (foundPath) {
+  console.log("Path found!");
+} else {
+  console.log("Path not found.");
 }
 
 
-}
-
-
-// pega o maior numero da array (objetivo)
-/**
-     * @param {number[][]} cidade
-     */
-function maiorNum(cidade){
-        let maior = cidade[0][0]; 
-
-        for (let i = 0; i < cidade.length; i++) {
-            for(let j = 0; j<cidade[i].length; j++){
-                if(cidade[i][j] > maior){
-                     maior = cidade[i][j];
-                }
-            }
-        }
-        return maior;
-    
-}
-
-/**
-     * @param {number[][]} cidadezi
-     */
-function carro(cidadezi){
-        let menor = 100
-        
-        for (let i = 0; i < cidadezi.length; i++) {
-            for(let j = 0; j<cidadezi[i].length; j++){
-                if(cidadezi[i][j] < menor && cidadezi[i][j] != 1 && cidadezi[i][j] != 0 ){
-                    menor = cidadezi[i][j];
-                }
-            }
-        }
-        return menor;
-        
-}
-
-rota(city)
 
 </script>
 <h1>em tese mapa do jogo</h1>
