@@ -4,8 +4,16 @@
         <div class="mainBox">
             <h1 class="title">WAZE PARTICULAR</h1>
             <div class="menu">
-                <a href="/cidade">
-                    <button class="btn">Começar</button>
+                <a href="/cidade1-inicio">
+                    <button class="btn">Começar - cidade 1</button>
+                </a>
+                <br>
+                <a href="/cidade2-inicio">
+                    <button class="btn">Começar - cidade 2</button>
+                </a>
+                <br>
+                <a href="/cidade3-inicio">
+                    <button class="btn">Começar - cidade 3</button>
                 </a>
                 <br>
                 <a href="/">

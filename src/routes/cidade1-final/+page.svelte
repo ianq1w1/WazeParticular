@@ -55,19 +55,19 @@ function findPath(matrix) {
     for(let j = 0; j < matrix[i].length + 1; j++){
         if (moveValido(matrix, i, j)){
             console.log(i,j)
-            matrix[i][j] = 0
+            matrix[i][j] = 7
             return true;
         }if (moveValido(matrix, i, j)){
             console.log(i,j)
-            matrix[i][j] = 0
+            matrix[i][j] = 7
             return true;
         }if (moveValido(matrix, i, j)){
             console.log(i,j)
-            matrix[i][j] = 0
+            matrix[i][j] = 7
             return true;
         }if (moveValido(matrix, i, j)){
             console.log(i,j)
-            matrix[i][j] = 0
+            matrix[i][j] = 7
             return true;
         }
     }
@@ -161,7 +161,7 @@ if (foundPath) {
 <h2>era pra ser isso mas vai deixar de ser:</h2>
 <p>  1 = pista 
     <br>
-    maior numero = objetivo
+    maior numero = objetivo, se ele se tornou um 7 quer dizer q ele chegou no objetivo
     <br>
     0 = casas/coisas
     <br> 
