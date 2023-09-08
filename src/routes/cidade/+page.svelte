@@ -49,18 +49,26 @@ function findPath(matrix) {
   ) {
     return true;
   }*/
-console.log(moveValido(matrix, RowCar - 1, ColCar) )
+//console.log(moveValido(matrix, RowCar - 1, ColCar) )
 
   for(let i = 0; i < matrix.length; i++ ){
-    for(let j = 0; j < matrix[i].length; j++){
-        if(moveValido(matrix, i - 1, j) || moveValido(matrix, i + 1, j) || moveValido(matrix, i, j + 1) || moveValido(matrix, i, j - 1) ){
-            i = RowCar
-            j = ColCar;
+    for(let j = 0; j < matrix[i].length + 1; j++){
+        if (moveValido(matrix, i, j)){
+            console.log(i,j)
             matrix[i][j] = 0
             return true;
-        }else{
-            matrix[i][j] = rua
-            return false;
+        }if (moveValido(matrix, i, j)){
+            console.log(i,j)
+            matrix[i][j] = 0
+            return true;
+        }if (moveValido(matrix, i, j)){
+            console.log(i,j)
+            matrix[i][j] = 0
+            return true;
+        }if (moveValido(matrix, i, j)){
+            console.log(i,j)
+            matrix[i][j] = 0
+            return true;
         }
     }
   }
@@ -116,9 +124,9 @@ function FindDestiny(matrix){
     return destiny;
 }
 function moveValido(matrix, row, col){
-    if(row < 0 || col < 0 || matrix[row][col] === 0){
+    if(row < 0 || col < 0 || row >= matrix.length || col >= matrix[0].length || matrix[row][col] == 0 || matrix[row][col] == 2){
         return false;
-    }else{
+    }else if (matrix[row][col] === 5){
         return true;
     }
   }
