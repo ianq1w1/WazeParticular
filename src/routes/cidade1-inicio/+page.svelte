@@ -2,7 +2,7 @@
     let city = [
   [0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 1, 1, 1, 1, 5, 0],
-  [0, 0, 1, 0, 0, 0, 1, 0],
+  [1, 1, 1, 0, 0, 0, 1, 0],
   [0, 0, 1, 0, 0, 0, 1, 0],
   [0, 0, 1, 0, 0, 0, 1, 0],
   [0, 0, 2, 1, 1, 1, 1, 0],
@@ -10,37 +10,59 @@
 
 </script>
 
-<h2>Mapa</h2>
+<body>
+    <div class="content">
+        <h2>Mapa</h2>
 
-<table>
-    {#each city as linha, i}
-    <tr>
-        {#each linha as _city, j}
-            <td class={"valor-" + city[i][j]}>{city[i][j]}</td>
-        {/each}
-    </tr>
-    {/each}
-</table>
+        <table>
+            {#each city as linha, i}
+            <tr>
+                {#each linha as _city, j}
+                    {#if city[i][j] == (0)}
+                        <td>
+                            <img src="src\images\casa.png" alt="casa">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (1)}
+                        <td>
+                            <img src="src\images\pista.png" alt="pista">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (2)}
+                        <td>
+                            <img src="src\images\relampago.png" alt="relampago">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (5)}
+                        <td>
+                            <img src="src\images\ifpe.png" alt="if">
+                        </td>
+                    {/if}
+                {/each}
+            </tr>
+            {/each}
+        </table>
 
-<div class="pastinha">
-    <a href="/" class="casa">🏠 Home</a>
-    <a href="/cidade1-final" class="btnRota">🚶‍♂️ Faça a rota</a>
-</div>
-
-<!-- 
-<div>
-    <h2>era pra ser isso mas vai deixar de ser:</h2>
-        1 = pista 
-        <br>
-        maior numero = objetivo
-        <br>
-        0 = casas/coisas
-        <br> 
-        2(ou menor numero exceto por 1 e 0) = carro
-</div>
--->
+        <div class="pastinha">
+            <a href="/" class="casa">🏠 Home</a>
+            <a href="/cidade1-final" class="btnRota">🚶‍♂️ Faça a rota</a>
+        </div>
+    </div>
+</body>
 
 <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .content {
+        text-align: center;
+        margin: 0 auto;}
+
     h2 {
         text-align: center;
         margin: 5px;
@@ -49,37 +71,11 @@
     }
 
     table {
-        height: 15px;
-        width: 15px;; 
-    }
-
-    .valor-0, .valor-1, .valor-2, .valor-5 {
-        color: transparent;
-    }
-
-    .valor-0 {
-        background-color: white;
-    }
-
-    .valor-1 {
-        background-color: gray;
-    }
-
-    .valor-2 {
-        background-color: red;
-    }
-
-    .valor-5 {
-        background-color: green;
-    }
-
-    table {
         border-collapse: collapse; 
     }
 
     tr, td {
-        padding: 30px;
-        height: 20px;
+        padding: 0px;
         border: 1px solid #333; 
     }
 

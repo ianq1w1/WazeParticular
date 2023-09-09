@@ -2,7 +2,8 @@
     <div class="container">
         <h1>Sobre o projeto</h1>
         <div class="content">
-            Projeto feito por Carolayne e Ian para a disciplina de Algaritmo.
+            Projeto feito por Carolayne e Ian para a disciplina de Algaritmo e estrutura de dados.
+
         </div>
         <div class="pastinha">
             <a href="/" class="casa">🏠 Home</a>
@@ -20,6 +21,8 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        width: 100vw;
+        background-color: #445ca6;;
     }
 
     .container {

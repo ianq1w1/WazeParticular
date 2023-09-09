@@ -14,9 +14,9 @@
             </div>
             <h1 class="title">WAZE PARTICULAR</h1>
             <div class="menu">
-                <a href="/cidade1-inicio" class="btn">Cidade 1</a>
-                <a href="/cidade2-inicio" class="btn">Cidade 2</a>
-                <a href="/cidade3-inicio" class="btn">Cidade 3</a>
+                <a href="/cidade1-inicio" class="btn"><b>Cidade:</b> Igarassu</a>
+                <a href="/cidade2-inicio" class="btn"><b>Cidade:</b> Paulista</a>
+                <!--<a href="/cidade3-inicio" class="btn">Cidade 3</a>-->
                 <a href="/criar" class="btn">Criar Cidade</a>
                 <a href="/sobre" class="btn">Sobre</a>
             </div>
@@ -34,8 +34,24 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        margin: 0;
+        width: 100vw;
+        margin: auto;
+        position: relative;
     }
+
+    body::before {
+        content: '';
+        background-image: url('https://i.pinimg.com/originals/e0/7e/a2/e07ea2eda9d787e4de5bfce55fd70f2c.jpg');
+        background-size: cover;
+        filter: blur(10px); 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
     .center{
         display: flex;
         justify-content: center;
@@ -55,8 +71,6 @@
         background-color: #fff;
         position: absolute;
         top: 15px;
-    }
-    .track::before {
         right: 35%;
     }
     .cart {
@@ -119,34 +133,54 @@
 
     .mainBox {
         text-align: center;
-        background-color: rgba(223, 240, 255, 0.7); 
-        padding: 20px;
+        background-color: rgba(223, 240, 255); 
+        padding: 40px 30px;
         width: 460px;
         border-radius: 10px;
     }
 
     h1 {
-        font-size: 36px;
-        color: #333;
+        font-size: 40px;    
+        color: #333333;
+        text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
+        color: #333333;
+        margin-bottom: 0;
     }
+    
 
     .btn {
         display: block;
-        background: #5776cc;
+        background: #5d7fdb;
         color: white;
         margin: 10px auto; 
         padding: 10px 20px;
-        font-weight: bold;
         width: 200px;
         border: none;
         border-radius: 5px;
         font-size: 18px;
         cursor: pointer;
         text-decoration: none;
+        position: relative;
     }
 
+    .btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 0 8px 10px;
+        border-color: transparent transparent transparent #475b94; /* Cor da seta quando o mouse está sobre o botão */
+        transform: translateY(-50%);
+        transition: border-color 0.3s ease-in-out;
+    }
     .btn:hover {
-        opacity: 0.8; 
+        background: #475b94;
+    }
+    .btn:hover::before {
+        border-color: transparent transparent transparent white; /* Cor da seta quando o mouse está sobre o botão */
     }
 
     .notFooter {    
