@@ -161,12 +161,12 @@ if (foundPath) {
                     {/if}
                     {#if city[i][j] == (2)}
                         <td>
-                            <img src="src\images\relampago.png" alt="relampago">
+                            <img src="src\images\pista.png" alt="pista">
                         </td>
                     {/if}
-                    {#if city[i][j] == (5)}
+                    {#if city[i][j] == (7)}
                         <td>
-                            <img src="src\images\ifpe.png" alt="if">
+                            <img src="src\images\relampago.png" alt="relampago">
                         </td>
                     {/if}
                 {/each}
