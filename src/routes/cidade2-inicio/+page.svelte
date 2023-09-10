@@ -10,39 +10,91 @@
 
 </script>
 
-<h1>em tese mapa do jogo</h1>
-<a href="/">link pra voltar á home</a>
-<h2>aqui em baixo array :V</h2>
+<body>
+    <div class="content">
+        <h2>Mapa</h2>
 
-<table class="haha">
-    
-    {#each city as linha,i}
-    <tr> 
-        {#each linha as _city,j}
-            <td>{city[i][j]}</td>
-        
-        {/each}
-    </tr>
-    {/each}
+        <table>
+            {#each city as linha, i}
+            <tr>
+                {#each linha as _city, j}
+                    {#if city[i][j] == (0)}
+                        <td>
+                            <img src="src\images\casa.png" alt="casa">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (1)}
+                        <td>
+                            <img src="src\images\pista.png" alt="pista">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (2)}
+                        <td>
+                            <img src="src\images\relampago.png" alt="relampago">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (5)}
+                        <td>
+                            <img src="src\images\ifpe.png" alt="if">
+                        </td>
+                    {/if}
+                {/each}
+            </tr>
+            {/each}
+        </table>
 
-</table>
-<a href="/cidade2-final">
-    <button class="">veja como ficará nessa rota :D</button>
-</a>
-<h2>era pra ser isso mas vai deixar de ser:</h2>
-<p>  1 = pista 
-    <br>
-    maior numero = objetivo
-    <br>
-    0 = casas/coisas
-    <br> 
-    2(ou menor numero exceto por 1 e 0) = carro</p>
+        <div class="pastinha">
+            <a href="/" class="casa">🏠 Home</a>
+            <a href="/cidade2-final" class="btnRota">🚶‍♂️ Faça a rota</a>
+        </div>
+    </div>
+</body>
 
 <style>
-    table, td{
-        border: 1px solid black;
-        padding: 20px;
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
     }
 
+    .content {
+        text-align: center;
+        margin: 0 auto;}
 
+    h2 {
+        text-align: center;
+        margin: 5px;
+        color: rgb(26, 34, 58);
+        font-size: 60px;
+    }
+
+    table {
+        border-collapse: collapse; 
+    }
+
+    tr, td {
+        padding: 0px;
+        border: 1px solid #333; 
+    }
+
+    .pastinha a{
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .btnRota, .casa{
+        display: block;
+        background: #5776cc;
+        color: white;
+        margin: 10px auto;
+        padding: 10px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        text-decoration: none;
+    }
 </style>
+
