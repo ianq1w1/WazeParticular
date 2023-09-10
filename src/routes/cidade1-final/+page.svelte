@@ -141,24 +141,59 @@ if (foundPath) {
 
 </script>
 
-<h2>Mapa</h2>
+<body>
+    <div class="content">
+        <h2>Mapa</h2>
 
-<table>
-    {#each city as linha, i}
-    <tr>
-        {#each linha as _city, j}
-            <td class={"valor-" + city[i][j]}>{city[i][j]}</td>
-        {/each}
-    </tr>
-    {/each}
-</table>
+        <table>
+            {#each city as linha, i}
+            <tr>
+                {#each linha as _city, j}
+                    {#if city[i][j] == (0)}
+                        <td>
+                            <img src="src\images\casa.png" alt="casa">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (1)}
+                        <td>
+                            <img src="src\images\pista.png" alt="pista">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (2)}
+                        <td>
+                            <img src="src\images\relampago.png" alt="relampago">
+                        </td>
+                    {/if}
+                    {#if city[i][j] == (5)}
+                        <td>
+                            <img src="src\images\ifpe.png" alt="if">
+                        </td>
+                    {/if}
+                {/each}
+            </tr>
+            {/each}
+        </table>
 
-<div class="pastinha">
-    <a href="/" class="casa">🏠 Home</a>
-    <a href="/" class="btnRota">🚶‍♂️ Você chegou ao destino</a>
-</div>
+        <div class="pastinha">
+            <a href="/" class="casa">🏠 Você Chegou ao seu destino.</a>
+        </div>
+    </div>
+</body>
 
 <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .content {
+        text-align: center;
+        margin: 0 auto;
+    }
+
     h2 {
         text-align: center;
         margin: 5px;
@@ -171,33 +206,12 @@ if (foundPath) {
         width: 15px; 
     }
 
-    .valor-0, .valor-1, .valor-2, .valor-7 {
-        color: transparent;
-    }
-
-    .valor-0 {
-        background-color: white;
-    }
-
-    .valor-1 {
-        background-color: gray;
-    }
-
-    .valor-2 {
-        background-color: white;
-    }
-
-    .valor-7 {
-        background-color: green;
-    }
-
     table {
         border-collapse: collapse; 
     }
 
     tr, td {
-        padding: 30px;
-        height: 20px;
+        padding: 0px;
         border: 1px solid #333; 
     }
 
@@ -206,7 +220,7 @@ if (foundPath) {
         margin-right: 10px;
     }
 
-    .btnRota, .casa{
+    .casa{
         display: block;
         background: #5776cc;
         color: white;
