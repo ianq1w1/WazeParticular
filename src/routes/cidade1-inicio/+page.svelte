@@ -61,7 +61,8 @@
 
     .content {
         text-align: center;
-        margin: 0 auto;}
+        margin: 0 auto;
+    }
 
     h2 {
         text-align: center;
