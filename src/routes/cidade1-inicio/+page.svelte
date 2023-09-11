@@ -62,6 +62,9 @@
     .content {
         text-align: center;
         margin: 0 auto;
+        background: white;
+        padding: 10px 40px;
+        border-radius: 20px;
     }
 
     h2 {
